@@ -5,7 +5,7 @@ module.exports = {
 
   // The plain compiled JavaScript will be output into this file
   output: {
-    
+    path: __dirname,
     filename: 'public/bundle.js',
     
   },
@@ -29,5 +29,6 @@ module.exports = {
   },
   // This lets us debug our react code in chrome dev tools. Errors will have lines and file names
   // Without this the console says all errors are coming from just coming from bundle.js
+  target: 'node',
   devtool: "eval-source-map"
 };

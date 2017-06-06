@@ -4,8 +4,8 @@ var bodyParser = require("body-parser");
 var logger = require("morgan");
 var mongoose = require("mongoose");
 
-// Require History Schema
-var Articles = require("./models/Articles");
+// Require Article Schema
+var Articles = require("./models/Articles.js");
 
 // Create Instance of Express
 var app = express();
@@ -24,7 +24,7 @@ app.use(express.static("./public"));
 // -------------------------------------------------
 
 // MongoDB Configuration configuration (Change this URL to your own DB)
-mongoose.connect("mongodb://admin:codingrocks@ds023664.mlab.com:23664/reactlocate");
+mongoose.connect("mongodb://heroku_pwf2f5g7:7345d675hbrpdrfsp1tfv4eb2k@ds111262.mlab.com:11262/heroku_pwf2f5g7");
 var db = mongoose.connection;
 
 db.on("error", function(err) {
@@ -47,7 +47,7 @@ app.get("/", function(req, res) {
 app.get("/api", function(req, res) {
 
   // We will find all the records, sort it in descending order, then limit the records to 5
-  History.find({}).sort([
+  Saved.find({}).sort([
     ["date", "descending"]
   ]).limit(5).exec(function(err, doc) {
     if (err) {

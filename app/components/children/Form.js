@@ -57,4 +57,4 @@ var Form = React.createClass({
   }
 });
 
-module.exports = SearchForm; 
+module.exports = Form; 
