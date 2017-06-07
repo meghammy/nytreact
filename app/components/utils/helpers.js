@@ -69,4 +69,4 @@ var helper = {
 }
 
 //Export so we can use this elsewhere. 
-module.exports = helpers; 
+module.exports = helper; 

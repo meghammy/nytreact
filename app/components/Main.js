@@ -12,8 +12,7 @@ var helpers = require("./utils/helpers");
 // Creating the Main component
 var Main = React.createClass({
 
-    // Here we set a generic state associated with the number of clicks
-    // Note how we added in this history state variable
+
     getInitialState: function() {
         return {
             searchTerm: "",
@@ -59,39 +58,37 @@ var Main = React.createClass({
             }.bind(this));
     },
 
-
+    //This was giving me errors so I stropped some whitespace and closed divs. Pretty sure its the same layout
     render: function() {
-        return ( < div className = "container" >
-            < div className = "row" >
-            < div className = "jumbotron" >
-            < h2 className = "text-center" > New York Times Article Scubber! < /h2> < p className = "text-center" >
-            < em > Search
-            for and annotate articles of interest < /em> < /p> < /div>
+        return ( 
+            <div className = "container">
+                <div className = "row" >
+                   <div className = "jumbotron" >
+                        < h2 className = "text-center" > New York Times Article Scubber! </h2> 
+                        < p className = "text-center" >
+                            <em> Search for and annotate articles of interest </em> 
+                        </p>
+                    </div>
 
-            < div className = "col-md-6" >
+                    < div className = "col-md-6" >
 
-            < Form setTerm = { this.setTerm }
-            />
+                        < Form setTerm = { this.setTerm } />
 
-            < /div>
+                    </div>
 
-            < div className = "col-md-6" >
+                    <div className = "col-md-6">
 
-            < Results articles = { this.state.results }
-            />
+                        < Results articles = { this.state.results } />
 
-            < /div>
+                    </div>
 
-            < /div>
+                    <div className = "row">
 
-            < div className = "row" >
+                        < History history = { this.state.history } />
 
-            < History history = { this.state.history }
-            />
-
-            < /div>
-
-            < /div>
+                    </div>
+                </div>
+            </div>
         );
     }
 });

@@ -1,9 +1,22 @@
 // Include React
 var React = require("react");
 
+var helpers = require("../utils/helpers");
+
 // Creating the Results component
 var Results = React.createClass({
   // Here we render the function
+
+    //Added set state method to hold results with validation
+    getInitialState() {
+    var results = [{
+      headline : " ",
+      blurb : " ",
+      url : "#"
+    }] || this.props.results;
+    return {"results" : results};
+  },
+
   render: function() {
     return (
       <div className="panel panel-default">
@@ -11,7 +24,8 @@ var Results = React.createClass({
           <h3 className="panel-title text-center">Results</h3>
         </div>
         <div className= "panel-body text-center">
-          {this.props.results.map(function(search, i){
+          {this.state.results.map(function(search, i){
+            console.log("test");
             return(
             <div id= "resultDiv" key={i}>
               <h3>{search.headline}</h3>
